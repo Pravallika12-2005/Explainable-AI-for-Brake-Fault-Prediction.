@@ -1,0 +1,298 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Break Fault Prediction</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="{% static 'main/bootstrap.min.css' %}">
+    <!-- style css -->
+    <link rel="stylesheet" href="{% static 'main/style.css' %}">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="{% static 'main/responsive.css' %}">
+    <!-- fevicon -->
+    <link rel="icon" href="{% static 'main/fevicon.png' %}S" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="{%static 'main/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+    <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <style>
+        .rating {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+    }
+    
+    .rating > input{ display:none;}
+    
+    .rating > label {
+      position: relative;
+        width: 1em;
+        font-size: 40px;
+        color: #FFD600;
+        cursor: pointer;
+    }
+    .rating > label::before{ 
+      content: "\2605";
+      position: absolute;
+      opacity: 0;
+    }
+    .rating > label:hover:before,
+    .rating > label:hover ~ label:before {
+      opacity: 1 !important;
+    }
+    
+    .rating > input:checked ~ label:before{
+      opacity:1;
+    }
+    
+    .rating:hover > input:checked ~ label:before{ opacity: 0.4; }
+    
+    /* body{ background: #222225; color: rgb(180, 43, 43);}
+    h1, p{ 
+        text-align: center;
+        
+    } */
+    
+    h1{
+        margin-top:150px;
+    }
+    p{ font-size: 1.2rem;}
+    @media only screen and (max-width: 600px) {
+      h1{font-size: 14px;}
+      p{font-size: 12px;}
+    }
+  
+     
+    .custom-button{
+    color:rgb(22, 211, 236);
+    background-color: rgb(22, 211, 236); /* Button background color */
+    color: #fff; /* Text color */
+    padding: 10px 20px; /* Padding inside the button */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style on hover */
+    font-size: 16px; /* Font size */
+    text-align: center; /* Center text horizontally */
+    text-decoration: none; /* Remove underlines from text */
+    display: inline-block;
+    }
+    </style>
+</head>
+<!-- body -->
+
+<body   background="{% static 'main/banner.png' %}" class="main-layout inner_page">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="{% static 'main/loading.gif' %}" alt="your-gif" /></div>
+    </div>
+    <!-- end loader -->
+    <!-- top -->
+    <!-- header -->
+    <header class="header-area">
+        <!--div class="left">
+            <a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a>
+        </div-->
+        <!--div class="right">
+            <a href="Javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a>
+        </div-->
+        <div class="container">
+            <div class="row d_flex">
+                <div class="col-sm-3 logo_sm">
+                    <div class="logo">
+                        <a href="index.html"></a>
+                    </div>
+                </div>
+                <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-9">
+                    <div class="navbar-area">
+                        <nav class="site-navbar">
+                            <ul>
+                                <li>
+                                    <a href="{% url 'userdashboard' %}" style="font-size:17px; text-decoration:underline;">My Dashboard</a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'user_Gradiant_Boost' %}" style="font-size:17px;">Break Fault prediction </a>
+                                </li>
+                                <li>
+                                    <a href="{% url 'profile' %}" style="font-size:17px;">My Profile</a>
+                                </li>
+                                <li>
+                                    <a  href="{% url 'userfeedbacks' %}" style="font-size:17px;">Feedback</a>
+                                </li>
+                                
+                                <li>
+                                    <a href="{% url 'userlogout' %}" style="font-size:17px;">Logout</a>
+                                </li>
+                            </ul>
+                            <button class="nav-toggler">
+                                <span></span>
+                            </button>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <br><br>
+    <section class="vh-100" style="background-color: #f4f5f7;">
+        <div class="container">
+           <div class="row">
+              <div class="col-12 card m-5">
+                 <form action="" method="post" class="col-12">
+                    {% csrf_token %}
+                    <h1 class="text-center mt-2">Feed Back Form</h1> <hr>
+                    <div class="rating">
+                       <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+                       <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+                       <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+                       <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+                       <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+                    </div>
+                    <textarea class="mb-3 col-12" placeholder="Type your comments..." name="review" id="" cols="30" rows="5"></textarea>
+                    <div class="col text-center">
+                       <button  class="custom-button mt-3" type="submit">Submit</button>
+              </div>
+                 </form>
+              </div>
+           </div>
+        </div>
+     </section>
+    <!-- end header -->
+    <!-- end banner -->
+    <!-- coronata -->
+
+    <footer>
+        <div class="footer" style="background-color: #1b105c; padding: 40px 0;">
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="hedingh3 text_align_left">
+                            <h3 class="footer-heading">Resources</h3>
+                            <ul class="menu_footer">
+                                <li><a href="index.html" class="footer-link">Home</a></li>
+                                <li><a href="javascript:void(0)" class="footer-link">What we do</a></li>
+                                <li><a href="javascript:void(0)" class="footer-link">Media</a></li>
+                                <li><a href="javascript:void(0)" class="footer-link">Travel Advice</a></li>
+                                <li><a href="javascript:void(0)" class="footer-link">Protection</a></li>
+                                <li><a href="javascript:void(0)" class="footer-link">Care</a></li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="hedingh3 text_align_left">
+                            <h3 class="footer-heading">About</h3>
+                            <p class="footer-about-text" style="color: #aaa;">Secure Explainable-AI Approach for Brake Faults Prediction in Heavy Transport, which focuses on predicting air brake system failures in heavy transport vehicles using Machine Learning and Explainable AI techniques.</p>
+                        </div>
+                    </div>
+    
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="hedingh3 text_align_left">
+                            <h3 class="footer-heading">Contact Us</h3>
+                            <ul class="top_infomation">
+                                <li style="color: #aaa;"><i class="fa fa-map-marker" aria-hidden="true"></i>Pragati Engineering College,Surampalem</li>
+                                <li style="color: #aaa;"><i class="fa fa-phone" aria-hidden="true"></i> Call : +91 7386829322</li>
+                                <li style="color: #aaa;">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <span style="margin-left: 5px; color: #aaa;"><a href="mailto:rg.techprojects@gmail.com" class="footer-link" style="color: #aaa; ">pravallikagokeda9@gmail.com</a></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="hedingh3 text_align_left">
+                            <h3 class="footer-heading">Countries</h3>
+                            <div class="map">
+                                <img src="{% static 'main/map.png' %}" alt="Map" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="copyright text-center" style="margin-top: 30px;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="footer-text">© 2026 All Rights Reserved. Design by <a href="https://html.design/" class="footer-link">Pravallika</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </footer>
+
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script src="{% static 'main/jquery.min.js' %}"></script>
+    <script src="{% static 'main/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+    <script src="{% static 'main/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'main/custom.js' %}"></script>
+    <script>
+        $(".stars").mousemove(function (e) {
+            var gLeft = $(".stars .stars-ghost").offset().left,
+               pX = e.pageX;
+         
+            $(".stars .stars-ghost").width(pX - gLeft);
+         });
+         
+    </script>
+    {% if messages %}
+  {% for message in messages %}
+  {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+  <script>swal({
+          title: "Success!",
+          text: "{{message}}",
+          icon: "success",
+          button: "OK",
+      });
+  </script>
+  
+  {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+  <script>swal({
+          title: "Warning :)",
+          text: "{{message}}",
+          icon: "warning",
+          button: "OK",
+       
+      });
+  </script>
+  {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+  <script>swal({
+          title: "info :)",
+          text: "{{message}}",
+          icon: "info",
+          button: "OK",
+      });
+  </script>
+  {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+  <script>swal({
+          title: "error :)",
+          text: "{{message}}",
+          icon: "error",
+          button: "OK",
+      });
+  </script>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+</body>
+</html>

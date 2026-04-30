@@ -1,0 +1,266 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Brake_Fault_in_Heavy_Transports</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{% static 'main/bootstrap.min.css' %}">
+      <!-- style css -->
+      <link rel="stylesheet" href="{% static 'main/style.css' %}">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="{% static 'main/responsive.css' %}">
+      <!-- fevicon -->
+      <link rel="icon" href="{% static 'main/fevicon.png' %}" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+       <link rel="stylesheet" href="{% static 'main/owl.carousel.min.css' %}"> 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
+       <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <style>
+         .custom-button{
+             color:rgb(22, 211, 236);
+             background-color: #1b105c; /* Button background color */
+             color: #fff; /* Text color */
+             padding: 10px 20px; /* Padding inside the button */
+             border: none; /* Remove default button border */
+             border-radius: 5px; /* Rounded corners */
+             cursor: pointer; /* Cursor style on hover */
+             font-size: 16px; /* Font size */
+             text-align: center; /* Center text horizontally */
+             text-decoration: none; /* Remove underlines from text */
+             display: inline-block;
+          }
+       </style>
+   </head>
+   <!-- body -->
+   <body class="main-layout inner_page">
+      <!-- loader  -->
+      <div class="loader_bg">
+         <div class="loader"><img src="{% static 'main/loading.gif' %}" alt="#"/></div>
+      </div>
+      <!-- end loader -->
+      <!-- top -->
+                    <!-- header -->
+         <header class="header-area" >
+            <!--div class="left">
+               <a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a>
+            </div-->
+            <!--div class="right">
+               <a href="Javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a>
+            </div-->
+            <div class="container">
+               <div class="row d_flex">
+                  <div class="col-sm-3 logo_sm">
+                     <div class="logo">
+                        <a href="index.html"></a>
+                     </div>
+                  </div>
+                  <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-9">
+                     <div class="navbar-area">
+                        <nav class="site-navbar">
+                           <ul>
+                              <li><a href="{% url 'home' %}" class="logo_midle">Home</a></li>
+                              <li><a href="{% url 'login'%}">User</a></li>
+                              <li><a href="{% url 'admin'%}">Admin</a></li>
+                              <li><a href="{% url 'about'%}">About</a></li>
+                              <li><a  class="active" href="{% url 'contact' %}" style="color: rgb(255, 255, 255);">Contact </a></li>
+                           </ul>
+                           <button class="nav-toggler">
+                           <span></span>
+                           </button>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+      <!-- end header -->
+
+      <!-- contact -->
+     <div class="contact">
+         <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                     <div class="titlepage text_align_left">
+                        <h2>Contact Us</h2>
+                     </div>
+                  </div>
+            </div>
+            <div class="row">
+               <div class="col-md-6">
+                  <form method = 'post' enctype = 'multipart/form-data' id="request" class="main_form" name = 'myLoginForm'>
+                     {%csrf_token%}
+                     <div class="row">
+                        <div class="col-md-12 ">
+                           <input class="contactus" placeholder="Full Name" type="type" name=" Name"> 
+                        </div>
+                        <div class="col-md-12">
+                           <input class="contactus" placeholder="Phone" type="type" name="Phone Number">                          
+                        </div>
+                        <div class="col-md-12">
+                           <input class="contactus" placeholder="Email" type="type" name="Email"> 
+                        </div>
+                        <!--div class="col-md-12">
+                           <textarea class="textarea" placeholder="Message" type="type" name="message"></textarea>
+                        </div-->
+                        <div class="col-md-12">
+                           <button class="custom-button">Send Now</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+                <div class="col-md-6">
+
+   <!-- Guide Details -->
+   <div style="background-color:#f8f9fa;
+               padding:20px;
+               border-radius:8px;
+               margin-bottom:20px;
+               box-shadow:0 4px 8px rgba(0,0,0,0.1);">
+
+      <h4 style="color:#1b105c; font-weight:bold; margin-bottom:15px;">
+         Project Details
+      </h4>
+
+      <p><strong>Guide Name:</strong>DR.Y.Jayababu</p>
+      <p><strong>      Name:</strong>G.V.S.S.Pravallika</p>
+      <p><strong>     phone:</strong>+91 7386829322</p>
+      <p><strong>      Mail:</strong>pravallikagokeda9@gmail.com</p>
+      <p><strong>Department:</strong>Computer Science Engineering</p>
+      <p><strong>   College:</strong>Pragati Engineering College</p>
+
+   </div>
+
+   <!-- Existing Image -->
+   <div class="map-responsive">
+       <img src="{% static 'main/hr_contact.jpg' %}" class="img-fluid">
+   </div>
+
+</div>
+            </div>
+         </div>
+      </div>
+      <!-- end contact -->
+      <!--  footer -->
+      <footer>
+         <div class="footer" style="background-color: #1b105c; padding: 40px 0;">
+             <div class="container">
+                 <div class="row text-white">
+                     <div class="col-lg-3 col-md-6 col-sm-6">
+                         <div class="hedingh3 text_align_left">
+                             <h3 class="footer-heading">Resources</h3>
+                             <ul class="menu_footer">
+                                 <li><a href="index.html" class="footer-link">Home</a></li>
+                                 <li><a href="javascript:void(0)" class="footer-link">What we do</a></li>
+                                 <li><a href="javascript:void(0)" class="footer-link">Media</a></li>
+                                 <li><a href="javascript:void(0)" class="footer-link">Travel Advice</a></li>
+                                 <li><a href="javascript:void(0)" class="footer-link">Protection</a></li>
+                                 <li><a href="javascript:void(0)" class="footer-link">Care</a></li>
+                             </ul>
+                         </div>
+                     </div>
+     
+                     <div class="col-lg-3 col-md-6 col-sm-6">
+                         <div class="hedingh3 text_align_left">
+                             <h3 class="footer-heading">About</h3>
+                             <p class="footer-about-text" style="color: #aaa;">Secure Explainable-AI Approach for Brake Faults Prediction in Heavy Transport, which focuses on predicting air brake system failures in heavy transport vehicles using Machine Learning and Explainable AI techniques.</p>
+                         </div>
+                     </div>
+     
+                     <div class="col-lg-3 col-md-6 col-sm-6">
+                         <div class="hedingh3 text_align_left">
+                             <h3 class="footer-heading">Contact Us</h3>
+                             <ul class="top_infomation">
+                                 <li style="color: #aaa;"><i class="fa fa-map-marker" aria-hidden="true"></i>Pragati Engineering College,Surampalem</li>
+                                 <li style="color: #aaa;"><i class="fa fa-phone" aria-hidden="true"></i> Call : +91 7386829322</li>
+                                 <li style="color: #aaa;">
+                                     <i class="fa fa-envelope" aria-hidden="true"></i>
+                                     <span style="margin-left: 5px; color: #aaa;"><a href="mailto:rg.techprojects@gmail.com" class="footer-link" style="color: #aaa; ">pravallikagokeda9@gmail.com</a></span>
+                                 </li>
+                             </ul>
+                         </div>
+                     </div>
+     
+                     <div class="col-lg-3 col-md-6 col-sm-6">
+                         <div class="hedingh3 text_align_left">
+                             <h3 class="footer-heading">Countries</h3>
+                             <div class="map">
+                                 <img src="{% static 'main/map.png' %}" alt="Map" class="img-fluid">
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+     
+             <div class="copyright text-center" style="margin-top: 30px;">
+                 <div class="container">
+                     <div class="row">
+                         <div class="col-md-12">
+                             <p class="footer-text">© 2026 All Rights Reserved. Design by <a href="https://html.design/" class="footer-link">Pravallika</a></p>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+         </footer>
+      <!-- Javascript files-->
+      <script src="{% static 'main/jquery.min.js' %}"></script>
+      <script src="{% static 'main/bootstrap.bundle.min.js' %}"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+      <script src="{% static 'main/owl.carousel.min.js' %}"></script>
+      <script src="{% static 'main/custom.js' %}"></script>
+      {% if messages %}
+  {% for message in messages %}
+  {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+  <script>swal({
+          title: "Success!",
+          text: "{{message}}",
+          icon: "success",
+          button: "OK",
+      });
+  </script>
+  
+  {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+  <script>swal({
+          title: "Warning :)",
+          text: "{{message}}",
+          icon: "warning",
+          button: "OK",
+       
+      });
+  </script>
+  {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+  <script>swal({
+          title: "info :)",
+          text: "{{message}}",
+          icon: "info",
+          button: "OK",
+      });
+  </script>
+  {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+  <script>swal({
+          title: "error :)",
+          text: "{{message}}",
+          icon: "error",
+          button: "OK",
+      });
+  </script>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+   </body>
+</html>

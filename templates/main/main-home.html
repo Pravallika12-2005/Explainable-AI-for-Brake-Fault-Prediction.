@@ -1,0 +1,535 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Brake_Fault_in_Heavy_Transports</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="{% static 'main/bootstrap.min.css' %}">
+      <!-- style css -->
+      <link rel="stylesheet" href="{% static 'main/style.css' %}">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="{% static 'main/responsive.css' %}">
+      <!-- fevicon -->
+      <link rel="icon" href="{% static 'main/fevicon.png' %}" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+       <link rel="stylesheet" href="{% static 'main/owl.carousel.min.css' %}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+   </head>
+   <style>
+
+/* ===== GLOBAL FONT IMPROVEMENT ===== */
+body {
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== NAVBAR IMPROVEMENT ===== */
+.header-area {
+    background: linear-gradient(90deg, #140a3c, #1b105c);
+}
+
+.site-navbar ul li a {
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+}
+
+.site-navbar ul li a:hover {
+    color: #00e0ff !important;
+    transform: scale(1.1);
+}
+
+/* ===== HERO TITLE ===== */
+.main-title {
+    font-size: 70px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #ffffff, #00e0ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 1.2s ease-in-out;
+}
+
+/* ===== QUOTE ===== */
+.banner-quote {
+    color: white;
+    font-size: 30px;
+    margin-top: 20px;
+    font-style: italic;
+    animation: fadeInUp 1.8s ease-in-out;
+}
+
+.highlight {
+    color: #00e0ff;
+    font-weight: bold;
+}
+
+/* ===== BUTTON ===== */
+.hero-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 35px;
+    background: #00e0ff;
+    color: black;
+    font-weight: 600;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.hero-btn:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== CARD HOVER EFFECT ===== */
+.latest {
+    transition: 0.4s ease;
+}
+
+.latest:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/* ===== FOOTER LINKS ===== */
+.footer-link:hover {
+    color: #00e0ff !important;
+}
+
+</style>
+   <!-- body -->
+   <body class="main-layout">
+      <!-- loader  -->
+      <div class="loader_bg">
+         <div class="loader"><img src="{% static 'main/loading.gif' %}" alt="#"/></div>
+      </div>
+      <!-- end loader -->
+      <!-- top -->
+                    <!-- header -->
+         <header class="header-area" style=" background:#1b105c;">
+            <!--div class="left">
+               <a href="Javascript:void(0)"><i class="fa fa-search" aria-hidden="true"></i></a>
+            </div-->
+            <!--div class="right">
+               <a href="Javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i></a>
+            </div-->
+            <div class="container">
+               <div class="row d_flex">
+                  <div class="col-sm-3 logo_sm">
+                     <div class="logo">
+                        <a href="index.html"></a>
+                     </div>
+                  </div>
+                  <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-9">
+                     <div class="navbar-area">
+                        <nav class="site-navbar">
+                           <ul>
+                              <li ><a href="{% url 'home' %}"  style="color: white; " class="logo_midle">Home</a></li>
+                              <li><a href="{% url 'login'%}" style="color: white; ">User</a></li>
+                              <li><a href="{% url 'admin'%}" style="color: white; ">Admin</a></li>
+                              <li><a href="{% url 'about'%}" style="color: white; ">About</a></li>
+                              <li><a  class="active" href="{% url 'contact' %}" style="color: white; ">Contact </a></li>
+                           </ul>
+                           <button class="nav-toggler">
+                           <span></span>
+                           </button>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </header>
+      <!-- end header -->
+            <div class="full_bg">
+      <!-- header inner -->
+         <div class="section">
+            <!-- carousel code -->
+            <div id="banner1" class="carousel slide slider_main">
+               <ol class="carousel-indicators ">
+                  <li data-target="#banner1" data-slide-to="0" class="indicator-li-1">01</li>
+                  <li data-target="#banner1" data-slide-to="1" class="">02</li>
+                  <li data-target="#banner1" data-slide-to="2" class="active">03</li>
+               </ol>
+               <div class="carousel-inner">
+                  <!-- first slide -->
+                  <div class="carousel-item active">
+                     <div class="carousel-caption cuplle">
+                        <div class="container">
+                           <div class="row">
+                              <div class="col-md-8">
+                                 <div class="photog">
+                                    <h1 class="main-title">Brake Fault Prediction</h1>
+                                    <p class="banner-quote">
+   “Early detection of brake faults 
+   <span class="highlight">saves lives</span> and ensures 
+   <span class="highlight">safer transport</span>.”
+</p>
+
+<a href="{% url 'login' %}" class="hero-btn">
+   Get Started
+</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- second slide -->
+                  <div class="carousel-item">
+                     <div class="carousel-caption cuplle">
+                        <div class="container">
+                           <div class="row">
+                              <div class="col-md-8">
+                                <div class="photog">
+                                 <h1 class="main-title">Brake Fault Prediction</h1>
+                                 <p class="banner-quote">
+   “Braking systems don’t fail suddenly — warnings appear.
+   <span class="highlight">Intelligent prediction</span> 
+   turns those warnings into 
+   <span class="highlight">prevention</span>.”
+</p>
+
+<a href="{% url 'login' %}" class="hero-btn">
+   Get Started
+</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- third slide -->
+                  <div class="carousel-item">
+                     <div class="carousel-caption cuplle">
+                        <div class="container">
+                           <div class="row">
+                              <div class="col-md-8">
+                                <div class="photog">
+                                 <h1 class="main-title">Brake Fault Prediction</h1>
+                                 <p class="banner-quote">
+   “Data-driven 
+   <span class="highlight">brake diagnostics</span> 
+   ensure every journey begins with 
+   <span class="highlight">confidence</span> 
+   and ends in safety.”
+</p>
+
+<a href="{% url 'login' %}" class="hero-btn">
+   Get Started
+</a>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!-- controls -->
+               <a class="carousel-control-prev" href="#banner1" role="button" data-slide="prev">
+               <i class="fa fa-angle-left" aria-hidden="true"></i>
+               <span class="sr-only">Previous</span>
+               </a>
+               <a class="carousel-control-next" href="#banner1" role="button" data-slide="next">
+               <i class="fa fa-angle-right" aria-hidden="true"></i>
+               <span class="sr-only">Next</span>
+               </a>
+            </div>
+         </div>
+      </div>
+      <!-- end banner -->
+      <!-- about -->
+      <div class="about">
+         <div class="container_width">
+            <div class="row d_flex">
+                   <div class="col-md-7">
+                  <div class="titlepage text_align_left">
+                     <h2>Secure Explainable-AI Approach for Brake Faults
+Prediction in Heavy Transport</h2>
+                     <p style="text-align: justify;"> The AI approach for brake faults prediction in heavy transport uses machine learning models to analyze sensor data and predict potential brake failures before they occur. By monitoring brake system parameters such as pressure, temperature, and wear levels, AI can detect anomalies and schedule preventive maintenance. This helps reduce downtime, improve safety, and lower maintenance costs through proactive decision-making.
+                     </p>
+                  </div>
+               </div>
+               <div class="col-md-5">
+                  <div class="about_img text_align_center">
+                    <figure><img src="{% static 'main/hr6.jpg' %}" alt="#" width="300" height=""/></figure>
+                  </div>
+               </div>
+             
+            </div>
+         </div>
+      </div>
+      <!-- end about -->
+     <!-- coronata -->
+      <div class="coronata">
+         <div class="container">
+            <div class="row d_flex grid">
+               <div class="col-md-7">
+                  <div class="coronata_img text_align_center">
+                     <figure><img src="{% static 'main/hr1.jpg' %}" alt="#" style="width: 500px; height: 400px;"/></figure>
+                  </div>
+               </div>
+               <div class="col-md-5 oder1">
+                  <div class="titlepage text_align_left">
+                     <h2>Management Strategies</h2>
+
+
+
+                     <ol>
+                        <li style="font-size: medium;"><h3>1.Data Collection and Integration Strategy:</h3>Gather real-time data from sensors installed on vehicles.Integrate data from multiple sources (vehicle diagnostics, maintenance records).Utilize IoT devices for continuous monitoring of critical components</li>
+                        <li style="font-size: medium;"><h3>2.Model Development and Validation Strategy:</h3>Use machine learning algorithms (e.g., Gradient Boosting, SVM) to predict brake failures.Train models using historical data of brake-related incidents and sensor readings.Continuously validate models with real-world data to improve prediction accuracy </li>
+                        <li style="font-size: medium;"><h3>3.Maintenance and Alert System Strategy:</h3>Develop predictive maintenance schedules based on model predictions.Implement automated alert systems to notify operators of potential brake issues.Prioritize maintenance tasks based on the severity of the predicted failure. </li>
+                        {% comment %}
+                         {% endcomment %}
+                        
+                     </ol>
+                     
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- end coronata -->
+   
+        <!-- protect -->
+      <!--div class="protect">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage text_align_center">
+                     <h2>How to Protect Yourself</h2>
+                     <p>Maintain a healthy weight, stay active with low-impact exercises, and avoid overloading the knee joints to help protect against knee osteoarthritis
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div-->
+       
+   <!-- cases -->
+<div class="cases">
+   <div class="container-fluid">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="titlepage text_align_center ">
+               <h2>Types of Hr Management Strategies</h2>
+               <p> Each of these strategies contributes to a comprehensive approach to managing brake faults in heavy transport vehicles, ensuring both safety and operational efficiency.</p>
+            </div>
+         </div>
+      </div>
+      <div class="row d_flex">
+         <div class="col-md-3">
+            <div class="latest text_align_center">
+               <figure><img src="{% static 'main/hr2.jpg' %}" style="height:300px;width:500px;" alt="#"/></figure>
+               <div class="">
+                  <h3>Data Collection and Monitoring Strategy:</h3>
+                  <p style="text-align: justify;">Focuses on continuous monitoring of brake systems using IoT sensors and vehicle diagnostic tools.Collect real-time data on brake performance, temperature, pressure, and wear.Integrate data from multiple sources (vehicle systems, maintenance logs) for comprehensive analysis.</p>
+
+                     
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="latest text_align_center">
+               <figure><img src="{% static 'main/hr3.jpg' %}" style="height:300px;width:500px;" alt="#"/></figure>
+               <div class="">
+                  <h3>Predictive Modeling and Risk Assessment Strategy:</h3>
+                  <p style="text-align: justify;">Leverages machine learning algorithms to predict potential brake failures before they occur.Use historical data and sensor inputs to build predictive models (e.g., Gradient Boosting, Random Forest).Assess risk based on predictive insights, prioritizing vehicles at higher risk of failure.</p>
+                    
+                  
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="latest text_align_center">
+               <figure><img src="{% static 'main/hr4.jpg' %}" style="height:300px;width:500px;" alt="#"/></figure>
+               <div class="">
+                  <h3>Maintenance Optimization and Scheduling Strategy:</h3>
+                  <p style="text-align: justify;">Develops predictive maintenance schedules based on real-time predictions and historical failure data.Automates maintenance alerts and prioritizes critical brake system repairs.Integrates failure prediction with fleet management systems to ensure timely maintenance. </p>
+                    
+               </div>
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="latest text_align_center">
+               <figure><img src="{% static 'main/hr5.jpg' %}" style="height:300px; width:500px;" alt="#" /></figure>
+               <div class="">
+                  <h3> Driver and Fleet Manager Collaboration Strategy</h3>
+                  <p style="text-align: justify;">Uses AI-driven alerts to inform drivers and fleet managers about potential brake issues.Implements real-time notifications for immediate action and preventive measures.Promotes a collaborative approach to address brake system concerns and improve safety protocols. </p>
+                   
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- end cases -->
+ 
+         <!-- doctors -->
+{% comment %} <div class="doctors">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="titlepage text_align_center ">
+               <h2>What Doctors Say About Health Monitor</h2>
+            </div>
+         </div>
+      </div>
+      <div class="row d_flex">
+         <div class="col-md-6">
+            <div id="ho_efcet" class="reader text_align_center">
+               <i><img src="{% static 'main/doctor1.png' %}" alt="#"/></i>
+               <h3>DR. NILESH AGRAWAL</h3>
+               <p>He is Director of NewEra Hospital, This dynamic doyen of the medical field is specially trained in surgeries for epilepsy and Parkinson’s disease. His area of interest remains to be functional & vascular neurosurgery</p>
+               <span><img src="{% static 'main/do.png' %}" alt="#"/></span>
+            </div>
+         </div>
+         <div class="col-md-6">
+            <div id="ho_efcet" class="reader text_align_center">
+               <i><img src="{% static 'main/doctor2.png' %}" alt="#"/></i>
+               <h3>Dr. Jayita Chattopadhyay</h3>
+               <p>Jayita Chattopadhyay is an expert and experienced General Physician with an experience of 30years. The doctor specializes in General Physician.strives to provide advanced medical care in a comfortable and holistic environment for all patients coming for treatment.</p>
+               <span><img src="{% static 'main/do.png' %}" alt="#"/></span>
+            </div>
+         </div>
+      </div>
+   </div>
+</div> {% endcomment %}
+<!-- end doctors -->
+<footer>
+   <div class="footer" style="background-color: #1b105c; padding: 40px 0;">
+       <div class="container">
+           <div class="row text-white">
+               <div class="col-lg-3 col-md-6 col-sm-6">
+                   <div class="hedingh3 text_align_left">
+                       <h3 class="footer-heading">Resources</h3>
+                       <ul class="menu_footer">
+                           <li><a href="index.html" class="footer-link">Home</a></li>
+                           <li><a href="javascript:void(0)" class="footer-link">What we do</a></li>
+                           <li><a href="javascript:void(0)" class="footer-link">Media</a></li>
+                           <li><a href="javascript:void(0)" class="footer-link">Travel Advice</a></li>
+                           <li><a href="javascript:void(0)" class="footer-link">Protection</a></li>
+                           <li><a href="javascript:void(0)" class="footer-link">Care</a></li>
+                       </ul>
+                   </div>
+               </div>
+
+               <div class="col-lg-3 col-md-6 col-sm-6">
+                   <div class="hedingh3 text_align_left">
+                       <h3 class="footer-heading">About</h3>
+                       <p class="footer-about-text" style="color: #aaa;">Secure Explainable-AI Approach for Brake Faults Prediction in Heavy Transport, which focuses on predicting air brake system failures in heavy transport vehicles using Machine Learning and Explainable AI techniques.</p>
+                   </div>
+               </div>
+
+               <div class="col-lg-3 col-md-6 col-sm-6">
+                   <div class="hedingh3 text_align_left">
+                       <h3 class="footer-heading">Contact Us</h3>
+                       <ul class="top_infomation">
+                           <li style="color: #aaa;"><i class="fa fa-map-marker" aria-hidden="true"></i>Pragati Engineering College,Surampalem</li>
+                           <li style="color: #aaa;"><i class="fa fa-phone" aria-hidden="true"></i> Call : +91 7386829322</li>
+                           <li style="color: #aaa;">
+                               <i class="fa fa-envelope" aria-hidden="true"></i>
+                               <span style="margin-left: 5px; color: #aaa;"><a href="mailto:rg.techprojects@gmail.com" class="footer-link" style="color: #aaa; ">pravallikagokeda9@gmail.com</a></span>
+                           </li>
+                       </ul>
+                   </div>
+               </div>
+
+               <div class="col-lg-3 col-md-6 col-sm-6">
+                   <div class="hedingh3 text_align_left">
+                       <h3 class="footer-heading">Countries</h3>
+                       <div class="map">
+                           <img src="{% static 'main/map.png' %}" alt="Map" class="img-fluid">
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+       <div class="copyright text-center" style="margin-top: 30px;">
+           <div class="container">
+               <div class="row">
+                   <div class="col-md-12">
+                       <p class="footer-text">© 2026 All Rights Reserved. Design by <a href="https://html.design/" class="footer-link">Pravallika</a></p>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+   </footer>
+       
+    
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script src="{% static 'main/jquery.min.js' %}"></script>
+    <script src="{% static 'main/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+    <script src="{% static 'main/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'main/custom.js' %}"></script>
+    {% if messages %}
+  {% for message in messages %}
+  {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+  <script>swal({
+          title: "Success!",
+          text: "{{message}}",
+          icon: "success",
+          button: "OK",
+      });
+  </script>
+  
+  {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+  <script>swal({
+          title: "Warning :)",
+          text: "{{message}}",
+          icon: "warning",
+          button: "OK",
+       
+      });
+  </script>
+  {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+  <script>swal({
+          title: "info :)",
+          text: "{{message}}",
+          icon: "info",
+          button: "OK",
+      });
+  </script>
+  {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+  <script>swal({
+          title: "error :)",
+          text: "{{message}}",
+          icon: "error",
+          button: "OK",
+      });
+  </script>
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+</body>
+</html>
